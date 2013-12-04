@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boutiques>
+  <boutique>
+    <id>1</id>
+    <nom>Carrefour</nom>
+    <portProduits>5005</portProduits>
+    <portCommandes>5006</portCommandes>
+  </boutique>
+    <boutique>
+    <id>2</id>
+    <nom>Leclerc</nom>
+    <portProduits>5007</portProduits>
+    <portCommandes>5008</portCommandes>
+  </boutique>
+    <boutique>
+    <id>3</id>
+    <nom>Cora</nom>
+    <portProduits>5009</portProduits>
+    <portCommandes>5010</portCommandes>
+  </boutique>
+</boutiques>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boutiques>
+  <boutique>
+    <id>1</id>
+    <nom>Carrefour</nom>
+    <portProduits>5005</portProduits>
+    <portCommandes>5006</portCommandes>
+  </boutique>
+</utilisateurs>
