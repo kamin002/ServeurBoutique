@@ -53,7 +53,7 @@ public class Boutique implements Cloneable{
         this.nom = nom;
         this.id=id;
         GestionBoutique.chargerXML(this);
-        this.runSauvegardeXML();
+        //this.runSauvegardeXML();
         //this.runGenID();
         this.portCommandes=portCommandes;
         this.portProduits=portProduits;

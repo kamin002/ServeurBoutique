@@ -2,7 +2,22 @@
 <produits>
   <produit>
     <id>1</id>
-    <nom>steak</nom>
-    <prix>21</prix>
+    <nom>Pain</nom>
+    <prix>10</prix>
+  </produit>
+  <produit>
+    <id>2</id>
+    <nom>saucisses</nom>
+    <prix>10</prix>
+  </produit>
+  <produit>
+    <id>3</id>
+    <nom>tapis de course</nom>
+    <prix>200</prix>
+  </produit>
+  <produit>
+    <id>4</id>
+    <nom>multiprise</nom>
+    <prix>50</prix>
   </produit>
 </produits>

@@ -1,53 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <produits>
   <produit>
-    <id>5</id>
-    <nom>5</nom>
-    <prix>10</prix>
-  </produit>
-  <produit>
     <id>1</id>
-    <nom>1</nom>
+    <nom>chouquettes</nom>
     <prix>10</prix>
-  </produit>
-  <produit>
-    <id>6</id>
-    <nom>Bride</nom>
-    <prix>9999999</prix>
   </produit>
   <produit>
     <id>2</id>
-    <nom>2</nom>
+    <nom>tamtam</nom>
     <prix>10</prix>
-  </produit>
-  <produit>
-    <id>7</id>
-    <nom>Bride</nom>
-    <prix>9999999</prix>
   </produit>
   <produit>
     <id>3</id>
-    <nom>3</nom>
-    <prix>10</prix>
+    <nom>tapis volant</nom>
+    <prix>200</prix>
   </produit>
   <produit>
     <id>4</id>
-    <nom>4</nom>
-    <prix>10</prix>
-  </produit>
-  <produit>
-    <id>5</id>
-    <nom>5</nom>
-    <prix>10</prix>
-  </produit>
-  <produit>
-    <id>6</id>
-    <nom>Bride</nom>
-    <prix>9999999</prix>
-  </produit>
-  <produit>
-    <id>7</id>
-    <nom>Bride</nom>
-    <prix>9999999</prix>
+    <nom>volant</nom>
+    <prix>50</prix>
   </produit>
 </produits>
