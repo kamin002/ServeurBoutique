@@ -27,7 +27,7 @@ public class XMLThread extends Thread{
         while(true){
             try {
                 this.sleep(60000);
-                GestionBoutique.sauvegarderXML(bout);
+                GestionBoutique.sauvegarderXML(bout);this.sleep(60000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(XMLThread.class.getName()).log(Level.SEVERE, null, ex);
             }

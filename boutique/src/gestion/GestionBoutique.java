@@ -145,4 +145,10 @@ public class GestionBoutique {
         }
         return res;
     }
+
+    public static ArrayList<Boutique> getListeBoutiques() {
+        return listeBoutiques;
+    }
+    
+    
 }

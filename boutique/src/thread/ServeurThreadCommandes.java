@@ -14,7 +14,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -39,12 +41,16 @@ public class ServeurThreadCommandes extends Thread{
     private static DatagramSocket socketServeur;
     private static Boutique bout;
     private byte[] tampon = new byte[3000];
+    
+    private static String portClient;
+    private static String hostClient;
 
     public ServeurThreadCommandes(int port, Boutique boutique) {
         this.portEcoute=port;
         this.socketServeur=null;
         this.bout=boutique;
-        
+        //System.out.println("Lancement ServeurCommandes "+boutique.getNom()+" sur "+port);
+        this.start();
     }
     
     
@@ -70,14 +76,29 @@ public class ServeurThreadCommandes extends Thread{
         while(true){
           try {
               socketServeur.receive(msg);
-              System.out.println("connexion commande reçu pour "+bout.getNom());
+              //this.portClient=msg.getS
+              //ServeurThreadCommandes.hostClient=msg.getSocketAddress();
               
+              System.out.println("connexion commande reçu pour "+bout.getNom()+" de "+msg.getSocketAddress().toString());
+              
+              String bloc = new String(msg.getSocketAddress().toString());
+              char crt;
+              
+              //methode de la mort
+              int i=0;
+              while(bloc.charAt(i) != ':'){
+                  i++;
+              }
+              
+              hostClient= bloc.substring(1, i);
+              portClient=bloc.substring(i+1, bloc.length());
+              
+
               String texte = new String(msg.getData(), 0, msg.getLength());
               ByteArrayInputStream bais = new ByteArrayInputStream(texte.getBytes());
                 SAXBuilder sxb = new SAXBuilder();
               try {
                   lireMessage(sxb.build(bais));
-                  System.out.println(socketServeur.getPort());
 
               } catch (JDOMException ex) {
                   Logger.getLogger(ServeurThreadCommandes.class.getName()).log(Level.SEVERE, null, ex);
@@ -92,7 +113,7 @@ public class ServeurThreadCommandes extends Thread{
   
   public static void lireMessage(org.jdom2.Document document){
 		
-        affiche(document);
+        //affiche(document);
         Element message = document.getRootElement();
 
         if(message.getAttributeValue("action").equals("envoyerCommande"))
@@ -128,7 +149,7 @@ public class ServeurThreadCommandes extends Thread{
     
     public static void envoyerCommande(){
         
-        Element racine=new Element("produits");
+        Element racine=new Element("commandes");
         org.jdom2.Document doc= new Document(racine);
         
         for(Commande cmd:bout.getListeCommandes()){
@@ -155,14 +176,33 @@ public class ServeurThreadCommandes extends Thread{
         
         XMLOutputter sortie= new XMLOutputter(Format.getCompactFormat());
         ByteArrayOutputStream baos= new ByteArrayOutputStream();
+        affiche(doc);
+        
+        try {
+            sortie.output(doc, baos);
+        } catch (IOException ex) {
+            Logger.getLogger(ServeurThreadCommandes.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         byte[] tampon= baos.toByteArray();
         
-        DatagramPacket DP = new DatagramPacket(tampon, tampon.length);
+        DatagramPacket DP;
         try {
+            DP = new DatagramPacket(tampon, tampon.length, InetAddress.getByName(hostClient),Integer.valueOf(portClient));
             socketServeur.send(DP);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(ServeurThreadCommandes.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ServeurThreadCommandes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        static void affiche(org.jdom2.Document document) {
+        try {
+            //On utilise ici un affichage classique avec getPrettyFormat()
+            XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
+            sortie.output(document, System.out);
+        } catch (java.io.IOException e) {
         }
     }
   

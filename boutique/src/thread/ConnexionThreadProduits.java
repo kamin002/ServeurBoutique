@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package thread;
 
 import boutique.Boutique;
@@ -33,20 +32,20 @@ import org.xml.sax.InputSource;
  * @author Benjamin
  */
 public class ConnexionThreadProduits extends Thread {
-    
+
     private static Socket sock;
     private InputStream is;
     private ObjectInputStream ois;
     private static Boutique bout;
     BufferedReader input;
     PrintWriter output;
-    
-    public ConnexionThreadProduits(Socket s, Boutique boutique) throws IOException{
-        this.sock=s;
-        this.bout=boutique;
+
+    public ConnexionThreadProduits(Socket s, Boutique boutique) throws IOException {
+        this.sock = s;
+        this.bout = boutique;
     }
-    
-    public void run(){
+
+    public void run() {
         try {
             InputStream is = this.sock.getInputStream();
             ObjectInputStream ois = new ObjectInputStream(is);
@@ -58,46 +57,48 @@ public class ConnexionThreadProduits extends Thread {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConnexionThreadProduits.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-        
-    public static void lireMessage(org.jdom2.Document document){
-		
-		Element message = document.getRootElement();
-                
-                if(message.getAttributeValue("action").equals("ajoutProduit"))
-                    bout.ajouterProduit(new Produit(message.getChildText("nom"),Long.parseLong(message.getChildText("prix"))));
-                if(message.getAttributeValue("action").equals("recevoirProduits"))
-                    envoyerProduits();
-		
-		System.out.println("La boutique "+bout.getNom()+" a reçu "+message.getAttributeValue("action"));
-                affiche(document);
+
+    public static void lireMessage(org.jdom2.Document document) {
+
+        Element message = document.getRootElement();
+
+        if (message.getAttributeValue("action").equals("ajoutProduit")) {
+            bout.ajouterProduit(new Produit(message.getChildText("nom"), Long.parseLong(message.getChildText("prix"))));
+        }
+        if (message.getAttributeValue("action").equals("recevoirProduits")) {
+            envoyerProduits();
+        }
+
+        System.out.println("La boutique " + bout.getNom() + " a reçu " + message.getAttributeValue("action"));
+        affiche(document);
                 //System.out.println(bout.getListeProduits());
-						
+
     }
-    
-    public static void envoyerProduits(){
-        
-        Element racine=new Element("produits");
-        org.jdom2.Document doc= new Document(racine);
-        
-        for(Produit pdrt:ConnexionThreadProduits.bout.getListeProduits()){
-            
+
+    public static void envoyerProduits() {
+
+        Element racine = new Element("produits");
+        org.jdom2.Document doc = new Document(racine);
+
+        for (Produit pdrt : ConnexionThreadProduits.bout.getListeProduits()) {
+
             Element pro = new Element("produit");
-            
-            Element id= new Element("id");
+
+            Element id = new Element("id");
             id.setText(pdrt.getId());
             pro.addContent(id);
-            Element nom=new Element("nom");
+            Element nom = new Element("nom");
             nom.setText(pdrt.getNom());
             pro.addContent(nom);
-            Element prix=new Element("prix");
+            Element prix = new Element("prix");
             prix.setText(String.valueOf(pdrt.getPrix()));
             pro.addContent(prix);
-                    
+
             racine.addContent(pro);
         }
-        
+
         try {
             OutputStream os = sock.getOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(os);
@@ -106,17 +107,16 @@ public class ConnexionThreadProduits extends Thread {
         } catch (IOException ex) {
             Logger.getLogger(ConnexionThreadProduits.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
-    static void affiche(org.jdom2.Document document){
-       try
-       {
-          //On utilise ici un affichage classique avec getPrettyFormat()
-          XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
-          sortie.output(document, System.out);
-       }
-       catch (java.io.IOException e){}
+
+    static void affiche(org.jdom2.Document document) {
+        try {
+            //On utilise ici un affichage classique avec getPrettyFormat()
+            XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
+            sortie.output(document, System.out);
+        } catch (java.io.IOException e) {
+        }
     }
 
 }

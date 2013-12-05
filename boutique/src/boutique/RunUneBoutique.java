@@ -24,6 +24,9 @@ public class RunUneBoutique {
           
           //GestionBoutique.ajouterBoutique("Carrefour",5005,5006);
           //GestionBoutique.ajouterBoutique("Leclerc",5007,5008);
+          //GestionBoutique.ajouterBoutique("Cora",5009,5010);
+          
+          System.out.println(GestionBoutique.getListeBoutiques());
           //Boutique boutique1=new Boutique("Carrefour");
         //GestionBoutique.sauvegarderXML(boutique);
        //GestionBoutique.chargerXML(bout);

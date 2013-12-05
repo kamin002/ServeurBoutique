@@ -83,7 +83,7 @@ public class GestionProduits {
 
                 boutique.ajouterProduit(new Produit(produit.getChild("nom").getText(),produit.getChild("id").getText(),Long.parseLong(produit.getChild("prix").getText())));
             }
-            System.out.println("ajout de "+produits.size()+" produits pour la boutique "+boutique.getNom());
+            //System.out.println("ajout de "+produits.size()+" produits pour la boutique "+boutique.getNom());
         }
     }
     
@@ -128,7 +128,11 @@ public class GestionProduits {
                     boolean isDirCreated = dir.mkdirs();
                     
                     File fichier=new File(dir, "produits.xml");
-                    sortie.output(document, new FileOutputStream(fichier));
+                    
+                    if(document==null)
+                        System.out.println("doc nul");
+                    else
+                        sortie.output(document, new FileOutputStream(fichier));
             }
             catch (java.io.IOException e){
                 System.out.println("erreur fichier produits.xml pour la boutique "+name+" "+e);

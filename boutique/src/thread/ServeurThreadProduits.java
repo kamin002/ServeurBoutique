@@ -29,7 +29,8 @@ public class ServeurThreadProduits extends Thread {
         this.portEcoute=port;
         this.socketServeur=null;
         this.boutique=boutique;
-        
+        //System.out.println("Lancement ServeurProduit "+boutique.getNom()+" sur "+port);
+        this.start();
     }
   
   //** Methode : la première méthode exécutée, elle attend les connections **

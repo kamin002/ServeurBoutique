@@ -42,25 +42,18 @@ public class Boutique implements Cloneable{
     private int portProduits;
     private int portCommandes;
 
-    public Boutique(String nom, ArrayList<Produit> listeProduits){        
-        this.nom = nom;
-        this.listeProduits = listeProduits;
-        GestionBoutique.chargerXML(this);      
-        this.runSauvegardeXML();
-    }
-
     public Boutique(String id, String nom, int portProduits, int portCommandes){
         this.nom = nom;
         this.id=id;
         GestionBoutique.chargerXML(this);
-        //this.runSauvegardeXML();
         //this.runGenID();
         this.portCommandes=portCommandes;
         this.portProduits=portProduits;
         
-        this.runServeurProduits(portProduits);
-        this.runServeurCommandes(portCommandes);
-        
+        threadServeurProduit=new ServeurThreadProduits(portProduits, this);
+        threadServeurCommandes=new ServeurThreadCommandes(portCommandes, this);
+        threadSauvegarde=new XMLThread(this);
+        //threadSauvegarde.run();
     }
 
     public String getNom() {
@@ -174,24 +167,6 @@ public class Boutique implements Cloneable{
         }
         return res;
     }
-    
-    public void runServeurProduits(int port){
-        this.threadServeurProduit=new ServeurThreadProduits(port,this);
-        Thread t = new Thread(this.threadServeurProduit);
-        t.start();
-    }
-    
-    public void runServeurCommandes(int port){
-        this.threadServeurCommandes=new ServeurThreadCommandes(port,this);
-        Thread t = new Thread(this.threadServeurCommandes);
-        t.start();
-    }
-    
-    public void runSauvegardeXML(){
-        this.threadSauvegarde=new XMLThread(this);
-        Thread t = new Thread(this.threadSauvegarde);
-        t.start();
-    }
 
     public void setId(String id) {
         this.id = id;
@@ -203,13 +178,20 @@ public class Boutique implements Cloneable{
         t.start();
     }    
 
-    public int getPortProduits() {
+    public synchronized int getPortProduits() {
         return portProduits;
     }
 
-    public int getPortCommandes() {
+    public synchronized int getPortCommandes() {
         return portCommandes;
     }
+
+    @Override
+    public String toString() {
+        return "Boutique{" + "nom=" + nom + ", id=" + id + ", portProduits=" + portProduits + ", portCommandes=" + portCommandes + '}';
+    }
+    
+    
     
     
 }
