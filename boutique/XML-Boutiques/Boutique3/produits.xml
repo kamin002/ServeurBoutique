@@ -1,23 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<produits>
-  <produit>
-    <id>1</id>
-    <nom>Pain</nom>
-    <prix>10</prix>
-  </produit>
-  <produit>
-    <id>2</id>
-    <nom>saucisses</nom>
-    <prix>10</prix>
-  </produit>
-  <produit>
-    <id>3</id>
-    <nom>tapis de course</nom>
-    <prix>200</prix>
-  </produit>
-  <produit>
-    <id>4</id>
-    <nom>multiprise</nom>
-    <prix>50</prix>
-  </produit>
-</produits>
+<produits />

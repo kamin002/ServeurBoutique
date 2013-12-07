@@ -21,14 +21,17 @@ public class XMLThread extends Thread{
 
     public XMLThread(Boutique bout) {
         this.bout = bout;
+        this.start();
     }
     
     public void run(){
         while(true){
             try {
                 this.sleep(60000);
-                GestionBoutique.sauvegarderXML(bout);this.sleep(60000);
+                GestionBoutique.sauvegarderXML(bout);
+                System.out.println("Sauvegarde XML de "+bout.getNom());
             } catch (InterruptedException ex) {
+                System.out.println("Erreur XML "+bout.getNom());
                 Logger.getLogger(XMLThread.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

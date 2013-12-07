@@ -24,17 +24,22 @@ import org.jdom2.output.XMLOutputter;
  */
 public class GestionProduits {
     
-   private static Element racine;
+   /*private static Element racine;
    private static org.jdom2.Document document;
+    
+    Suppression des attributs privé, il y avait une erreur
    
    public static void reset(){
        GestionProduits.racine= new Element("produits");
        GestionProduits.document = new Document(racine);
-   }
+   }*/
         
     public static void sauvegarderXML(Boutique boutique){
-        reset();
+        //reset();
         //incr.setText(String.valueOf(Produit.getIncr()));
+        
+       Element racine= new Element("produits");
+       org.jdom2.Document document = new Document(racine);
         
         //parcourt des commandes de la boutique passée en paramétre
         for(Produit pdrt:boutique.getListeProduits()){
@@ -60,7 +65,7 @@ public class GestionProduits {
         }
         
         //on demande l'écriture du fichier .xml
-        writeFile(boutique.getId());
+        writeFile(boutique.getId(),document);
 
     }
     
@@ -89,6 +94,8 @@ public class GestionProduits {
     
     public static Element ParserXML(String name)
    {
+       org.jdom2.Document document;
+       
       //On crée une instance de SAXBuilder
       SAXBuilder sxb = new SAXBuilder();
       try
@@ -115,7 +122,7 @@ public class GestionProduits {
 
    }
     
-    public static void writeFile(String name)
+    public static void writeFile(String name, org.jdom2.Document document)
     {
             try
             {
@@ -129,7 +136,7 @@ public class GestionProduits {
                     
                     File fichier=new File(dir, "produits.xml");
                     
-                    if(document==null)
+                    if(sortie==null)
                         System.out.println("doc nul");
                     else
                         sortie.output(document, new FileOutputStream(fichier));
