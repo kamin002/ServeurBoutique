@@ -26,7 +26,7 @@ import org.jdom2.output.XMLOutputter;
  */
 public class ConnexionThreadClientCommandes extends Thread {
 
-    private static int port = 5006;
+    private static int port = 5011;
     private static String ipaddress = "localhost";
     private static ArrayList<String> listeIdProduits = new ArrayList<String>();
 
@@ -80,7 +80,7 @@ public class ConnexionThreadClientCommandes extends Thread {
         DatagramPacket msg = null;
         try {
             InetAddress adresse = InetAddress.getByName(ipaddress);
-            msg = new DatagramPacket(tampon, tampon.length, adresse, 5006);
+            msg = new DatagramPacket(tampon, tampon.length, adresse, port);
 
         } catch (Exception e) {
             System.err.println("Erreur lors de la creation du message");
@@ -171,8 +171,11 @@ public class ConnexionThreadClientCommandes extends Thread {
     public static void main(String[] args) throws IOException {
 
         listeIdProduits.add("1");
-        listeIdProduits.add("");
-        listeIdProduits.add("3");
+        listeIdProduits.add("40");
+        listeIdProduits.add("30");
+        listeIdProduits.add("15");
+        listeIdProduits.add("81");
+        listeIdProduits.add("20");
        //ConnexionThreadClientCommandes.listeIdProduits.add("1");
         // ConnexionThreadClientCommandes.listeIdProduits.add("2");
         //ConnexionThreadClientCommandes.listeIdProduits.add("3");
