@@ -34,27 +34,27 @@ public class Produit implements Cloneable{
         this.prix=new Long(prdt.getPrix());
      }
 
-    public String getNom() {
+    public synchronized String getNom() {
         return nom;
     }
 
-    public String getId() {
+    public synchronized String getId() {
         return id;
     }
 
-    public long getPrix() {
+    public synchronized long getPrix() {
         return prix;
     }
 
-    public void setNom(String nom) {
+    public synchronized void setNom(String nom) {
         this.nom = nom;
     }
 
-    public void setPrix(long prix) {
+    public synchronized void setPrix(long prix) {
         this.prix = prix;
     }
 
-    public void setId(String id) {
+    public synchronized void setId(String id) {
         this.id = id;
     }    
 

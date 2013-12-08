@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandes>
+  <commande>
+    <id>1</id>
+    <valide>false</valide>
+    <date>1386506841492</date>
+    <produits />
+  </commande>
+  <commande>
+    <id>2</id>
+    <valide>false</valide>
+    <date>1386511155611</date>
+    <produits />
+  </commande>
+  <commande>
+    <id>3</id>
+    <valide>false</valide>
+    <date>1386511316848</date>
+    <produits />
+  </commande>
+  <commande>
+    <id>4</id>
+    <valide>false</valide>
+    <date>1386511501064</date>
+    <produits />
+  </commande>
+  <commande>
+    <id>5</id>
+    <valide>false</valide>
+    <date>1386511827451</date>
+    <produits />
+  </commande>
+  <commande>
+    <id>6</id>
+    <valide>false</valide>
+    <date>1386513571676</date>
+    <produits>
+      <produit>
+        <id>2</id>
+        <nom>pomme de terre</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>DVD</nom>
+        <prix>20</prix>
+      </produit>
+    </produits>
+  </commande>
+</commandes>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produits>
+  <produit>
+    <id>1</id>
+    <nom>Pile</nom>
+    <prix>10</prix>
+  </produit>
+  <produit>
+    <id>2</id>
+    <nom>pomme de terre</nom>
+    <prix>10</prix>
+  </produit>
+  <produit>
+    <id>3</id>
+    <nom>DVD</nom>
+    <prix>20</prix>
+  </produit>
+  <produit>
+    <id>4</id>
+    <nom>iPad</nom>
+    <prix>500</prix>
+  </produit>
+</produits>

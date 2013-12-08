@@ -65,14 +65,14 @@ public class GestionProduits {
         }
         
         //on demande l'écriture du fichier .xml
-        writeFile(boutique.getId(),document);
+        writeFile(boutique.getNom(),document);
 
     }
     
     public static void chargerXML(Boutique boutique){
         
-        if(ParserXML(boutique.getId())!=null){
-            Element racine2=ParserXML(boutique.getId());
+        if(ParserXML(boutique.getNom())!=null){
+            Element racine2=ParserXML(boutique.getNom());
 
             //On commence par mettre à jour l'incrément des commandes
            // boutique.setIncrProduits(Integer.parseInt(racine2.getChild("incr").getText()));

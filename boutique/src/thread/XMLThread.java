@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class XMLThread extends Thread{
     
-    private Boutique bout;
+    private final Boutique bout;
 
     public XMLThread(Boutique bout) {
         this.bout = bout;
@@ -27,7 +27,7 @@ public class XMLThread extends Thread{
     public void run(){
         while(true){
             try {
-                this.sleep(60000);
+                XMLThread.sleep(60000);
                 GestionBoutique.sauvegarderXML(bout);
                 System.out.println("Sauvegarde XML de "+bout.getNom());
             } catch (InterruptedException ex) {

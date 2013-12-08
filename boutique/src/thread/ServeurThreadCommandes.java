@@ -121,7 +121,7 @@ public class ServeurThreadCommandes extends Thread{
         if(message.getAttributeValue("action").equals("validerCommande"))
             validerCommande(message.getChild("commande"));
         if(message.getAttributeValue("action").equals("recevoirCommande"))
-            envoyerCommande();
+            envoyerCommandes();
 
         System.out.println(message.getAttributeValue("action"));					
     }
@@ -136,7 +136,9 @@ public class ServeurThreadCommandes extends Thread{
             
         while(pro.hasNext()){
             Element produit = (Element)pro.next();
-            listeProduits.add(bout.rechercherProduit(produit.getAttributeValue("id")));
+            
+            if(bout.rechercherProduit(produit.getAttributeValue("id"))!=null)
+                listeProduits.add(bout.rechercherProduit(produit.getAttributeValue("id")));
         }
         
         //ajout de la commande
@@ -147,7 +149,7 @@ public class ServeurThreadCommandes extends Thread{
         bout.rechercherCommande(message.getAttributeValue("id")).validerCommande();
     }
     
-    public static void envoyerCommande(){
+    public static void envoyerCommandes(){
         
         Element racine=new Element("commandes");
         org.jdom2.Document doc= new Document(racine);

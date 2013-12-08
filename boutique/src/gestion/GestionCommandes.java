@@ -29,18 +29,12 @@ import org.jdom2.output.XMLOutputter;
  */
 public class GestionCommandes {
     
-    //mise à disposition du document et de l'élément racine
-       private static Element racine;
-       private static org.jdom2.Document document;
-   
-   public static void reset(){
-       GestionCommandes.racine= new Element("commandes");
-       GestionCommandes.document = new Document(racine);
-   }
-    
-    
     public static void sauvegarderXML(Boutique boutique){
-        reset();
+        
+        System.out.println(boutique.getNom()+" "+boutique.getListeCommandes().size());
+        
+        Element racine= new Element("commandes");
+        org.jdom2.Document document = new Document(racine);
 //        incr.setText(String.valueOf(Commande.getIncr()));
         
         //parcourt des commandes de la boutique passée en paramétre
@@ -94,14 +88,16 @@ public class GestionCommandes {
         }
         
         //on demande l'écriture du fichier .xml
-        writeFile(boutique.getId());
+        writeFile(boutique.getNom(),document);
 
     }
     
     public static void chargerXML(Boutique boutique){
+        
+        Element racine = ParserXML(boutique.getNom());
+        
         if(racine!=null){
 
-            ParserXML(boutique.getId());
 
             //On commence par mettre à jour l'incrément des commandes
            // Commande.setIncr(Integer.parseInt(racine.getChild("incr").getText()));
@@ -132,8 +128,10 @@ public class GestionCommandes {
         }
     }
     
-    public static void ParserXML(String name)
+    public static Element ParserXML(String name)
    {
+       Element res=null;
+       
       //On crée une instance de SAXBuilder
       SAXBuilder sxb = new SAXBuilder();
       try
@@ -148,20 +146,20 @@ public class GestionCommandes {
 
         File fichier=new File(dir, "commandes.xml");*/
           
-         document = sxb.build("XML-Boutiques/Boutique"+name+"/commandes.xml");
-         racine = document.getRootElement();
+         System.out.println(name);
+         org.jdom2.Document document = sxb.build("XML-Boutiques/Boutique"+name+"/commandes.xml");
+         res = document.getRootElement();
       }
       catch(Exception e){
-          System.out.println(e);
-          racine=null;          
+          System.out.println(e);         
       }
 
       //On initialise un nouvel élément racine avec l'élément racine du document.
-
+      return res;
 
    }
     
-    public static void writeFile(String name)
+    public static void writeFile(String name, org.jdom2.Document document)
     {
             try
             {

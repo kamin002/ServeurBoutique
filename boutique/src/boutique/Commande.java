@@ -40,35 +40,35 @@ public class Commande implements Cloneable{
         this.id="0";
     }
     
-    public void setListeProduits(ArrayList<Produit> listeProduits) {
+    public synchronized void setListeProduits(ArrayList<Produit> listeProduits) {
         this.listeProduits = listeProduits;
     }
 
-    public void setId(String id) {
+    public synchronized void setId(String id) {
         this.id = id;
     }
    
-    public String getId() {
+    public synchronized String getId() {
         return id;
     }
 
-    public Date getDateCmd() {
+    public synchronized Date getDateCmd() {
         return dateCmd;
     }
 
-    public ArrayList<Produit> getListeProduits() {
+    public synchronized ArrayList<Produit> getListeProduits() {
         return listeProduits;
     }
     
-    public void validerCommande(){
+    public synchronized void validerCommande(){
         this.validation=true;
     }
 
-    public boolean isValidation() {
+    public synchronized boolean isValidation() {
         return validation;
     }
     
-    public Object clone() throws CloneNotSupportedException {  
+    public synchronized Object clone() throws CloneNotSupportedException {  
         Commande copy = (Commande) super.clone();
         
         if (copy.listeProduits != null)  
@@ -79,7 +79,7 @@ public class Commande implements Cloneable{
 
     
     //cette méthide permet de dupliquer un produit de la boutique dans la liste des produits d'une commande. on créer ici une nouvelle instance de produit.
-    public void ajouterProduit(Produit prdt) throws CloneNotSupportedException{
+    public synchronized void ajouterProduit(Produit prdt) throws CloneNotSupportedException{
         //this.listeProduits.add((Produit)prdt.clone());
     }
     /*

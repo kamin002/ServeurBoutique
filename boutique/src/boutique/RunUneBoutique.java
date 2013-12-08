@@ -20,9 +20,9 @@ public class RunUneBoutique {
         
       public static void main(String[] args) throws CloneNotSupportedException, InterruptedException{
         
-          GestionBoutique.chargerBoutiqueXML();
+          //GestionBoutique.chargerBoutiqueXML();
           
-          //GestionBoutique.ajouterBoutique("Carrefour",5005,5006);
+          GestionBoutique.ajouterBoutique("Carrefour",5005,5006);
           //GestionBoutique.ajouterBoutique("Leclerc",5007,5008);
           //GestionBoutique.ajouterBoutique("Cora",5009,5010);
           
@@ -32,6 +32,6 @@ public class RunUneBoutique {
        //GestionBoutique.chargerXML(bout);
         
         //bout.ajouterProduit(new Produit("toto",15));
-        //System.out.println(bout.getId()); 
+        //System.out.println(bout.getId());
     }   
 }

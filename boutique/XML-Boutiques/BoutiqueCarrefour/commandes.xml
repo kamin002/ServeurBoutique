@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandes>
+  <commande>
+    <id>1</id>
+    <valide>false</valide>
+    <date>1386513587351</date>
+    <produits>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>tapis de course</nom>
+        <prix>200</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>2</id>
+    <valide>false</valide>
+    <date>1386513591077</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>tapis de course</nom>
+        <prix>200</prix>
+      </produit>
+    </produits>
+  </commande>
+</commandes>

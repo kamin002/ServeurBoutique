@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package clients;
 
 import boutique.Produit;
@@ -25,167 +24,166 @@ import org.jdom2.output.XMLOutputter;
  *
  * @author Benjamin
  */
-public class ConnexionThreadClientCommandes extends Thread{
-    
-    private static int port=5008;
-    private static String ipaddress="localhost";
-    private static ArrayList<String> listeIdProduits=new ArrayList<String>();
+public class ConnexionThreadClientCommandes extends Thread {
+
+    private static int port = 5006;
+    private static String ipaddress = "localhost";
+    private static ArrayList<String> listeIdProduits = new ArrayList<String>();
 
     public ConnexionThreadClientCommandes(int port, String ipaddress) {
         this.port = port;
         this.ipaddress = ipaddress;
     }
-    
-    public static void envoyerCommande() throws IOException{
-        
-        Element racine= new Element("connexion");
-	org.jdom2.Document doc = new Document(racine);
-        
+
+    public static void envoyerCommande() throws IOException {
+
+        Element racine = new Element("connexion");
+        org.jdom2.Document doc = new Document(racine);
+
         racine.setAttribute("action", "envoyerCommande");
-        
-        Element commande= new Element("commande");
+
+        Element commande = new Element("commande");
         racine.addContent(commande);
-        
-        Element date=new Element("date");
+
+        Element date = new Element("date");
         commande.addContent(date);
         date.setText(String.valueOf(new Date().getTime()));
-        
-        Element produits=new Element("produits");
+
+        Element produits = new Element("produits");
         commande.addContent(produits);
 
-        for(String i:ConnexionThreadClientCommandes.listeIdProduits){
-            
-            Element produit=new Element("produit");
+        for (String i : ConnexionThreadClientCommandes.listeIdProduits) {
+
+            Element produit = new Element("produit");
             produits.addContent(produit);
             produit.setAttribute("id", i);
         }
-  
+
         //envoie XML
-
-                XMLOutputter sortie = new XMLOutputter(Format.getCompactFormat());
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-		sortie.output(doc, baos);
-                
-                byte[] tampon = baos.toByteArray();
-		DatagramSocket socket = null;
-                
-                // Creation du socket
-		try {
-			socket = new DatagramSocket();
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la creation du socket");
-			System.exit(-1);
-		}
-
-		// Creation du message
-		DatagramPacket msg = null;
-		try {
-			InetAddress adresse = InetAddress.getByName(ipaddress);
-			msg = new DatagramPacket(tampon, tampon.length, adresse, port);
-
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la creation du message");
-			System.exit(-1);
-		}
-
-		// Envoi du message
-		try {
-			socket.send(msg);
-		} catch (Exception e) {
-			System.err.println("Erreur lors de l'envoi du message");
-			System.exit(-1);
-		}
-
-		// Fermeture du socket
-		try {
-			socket.close();
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la fermeture du socket");
-			System.exit(-1);
-		}
-    }
-    
-    public static void validerCommande(int i){
-        
-        Element racine= new Element("connexion");
-	org.jdom2.Document doc = new Document(racine);
-        
-        racine.setAttribute("action", "validerCommande");
-        
-        Element commande= new Element("commande");
-        racine.addContent(commande);
-        commande.setAttribute("id",String.valueOf(i));
-        
-        //envoie XML
-
         XMLOutputter sortie = new XMLOutputter(Format.getCompactFormat());
-	ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        sortie.output(doc, baos);
+
+        byte[] tampon = baos.toByteArray();
+        DatagramSocket socket = null;
+
+        // Creation du socket
+        try {
+            socket = new DatagramSocket();
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la creation du socket");
+            System.exit(-1);
+        }
+
+        // Creation du message
+        DatagramPacket msg = null;
+        try {
+            InetAddress adresse = InetAddress.getByName(ipaddress);
+            msg = new DatagramPacket(tampon, tampon.length, adresse, 5006);
+
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la creation du message");
+            System.exit(-1);
+        }
+
+        // Envoi du message
+        try {
+            socket.send(msg);
+        } catch (Exception e) {
+            System.err.println("Erreur lors de l'envoi du message");
+            System.exit(-1);
+        }
+
+        // Fermeture du socket
+        try {
+            socket.close();
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la fermeture du socket");
+            System.exit(-1);
+        }
+    }
+
+    public static void validerCommande(int i) {
+
+        Element racine = new Element("connexion");
+        org.jdom2.Document doc = new Document(racine);
+
+        racine.setAttribute("action", "validerCommande");
+
+        Element commande = new Element("commande");
+        racine.addContent(commande);
+        commande.setAttribute("id", String.valueOf(i));
+
+        //envoie XML
+        XMLOutputter sortie = new XMLOutputter(Format.getCompactFormat());
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
         try {
             sortie.output(doc, baos);
         } catch (IOException ex) {
             Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
         }
-                
-                byte[] tampon = baos.toByteArray();
-		DatagramSocket socket = null;
-                
-                // Creation du socket
-		try {
-			socket = new DatagramSocket();
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la creation du socket");
-			System.exit(-1);
-		}
 
-		// Creation du message
-		DatagramPacket msg = null;
-		try {
-			InetAddress adresse = InetAddress.getByName(ipaddress);
-			msg = new DatagramPacket(tampon, tampon.length, adresse, port);
+        byte[] tampon = baos.toByteArray();
+        DatagramSocket socket = null;
 
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la creation du message");
-			System.exit(-1);
-		}
+        // Creation du socket
+        try {
+            socket = new DatagramSocket();
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la creation du socket");
+            System.exit(-1);
+        }
 
-		// Envoi du message
-		try {
-			socket.send(msg);
-		} catch (Exception e) {
-			System.err.println("Erreur lors de l'envoi du message");
-			System.exit(-1);
-		}
+        // Creation du message
+        DatagramPacket msg = null;
+        try {
+            InetAddress adresse = InetAddress.getByName(ipaddress);
+            msg = new DatagramPacket(tampon, tampon.length, adresse, port);
 
-		// Fermeture du socket
-		try {
-			socket.close();
-		} catch (Exception e) {
-			System.err.println("Erreur lors de la fermeture du socket");
-			System.exit(-1);
-		}
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la creation du message");
+            System.exit(-1);
+        }
+
+        // Envoi du message
+        try {
+            socket.send(msg);
+        } catch (Exception e) {
+            System.err.println("Erreur lors de l'envoi du message");
+            System.exit(-1);
+        }
+
+        // Fermeture du socket
+        try {
+            socket.close();
+        } catch (Exception e) {
+            System.err.println("Erreur lors de la fermeture du socket");
+            System.exit(-1);
+        }
     }
-    
-    public void run(){
-        
+
+    public void run() {
+
     }
-    
-    public static void main(String[]args) throws IOException{
-        
+
+    public static void main(String[] args) throws IOException {
+
         listeIdProduits.add("1");
-        listeIdProduits.add("2");
+        listeIdProduits.add("");
         listeIdProduits.add("3");
-        listeIdProduits.add("7");
        //ConnexionThreadClientCommandes.listeIdProduits.add("1");
-       // ConnexionThreadClientCommandes.listeIdProduits.add("2");
+        // ConnexionThreadClientCommandes.listeIdProduits.add("2");
         //ConnexionThreadClientCommandes.listeIdProduits.add("3");
         ConnexionThreadClientCommandes.envoyerCommande();
-        /**ConnexionThreadClientCommandes.validerCommande(1);
-        ConnexionThreadClientCommandes.validerCommande(3);
-        ConnexionThreadClientCommandes.validerCommande(4);
-        ConnexionThreadClientCommandes.validerCommande(5);
-        ConnexionThreadClientCommandes.validerCommande(6);
-        ConnexionThreadClientCommandes.validerCommande(7);*/
-        }    
+        /**
+         * ConnexionThreadClientCommandes.validerCommande(1);
+         * ConnexionThreadClientCommandes.validerCommande(3);
+         * ConnexionThreadClientCommandes.validerCommande(4);
+         * ConnexionThreadClientCommandes.validerCommande(5);
+         * ConnexionThreadClientCommandes.validerCommande(6);
+        ConnexionThreadClientCommandes.validerCommande(7);
+         */
+    }
 }

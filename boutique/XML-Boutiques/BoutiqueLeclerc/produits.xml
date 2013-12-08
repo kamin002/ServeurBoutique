@@ -2,22 +2,22 @@
 <produits>
   <produit>
     <id>1</id>
-    <nom>Pain</nom>
+    <nom>Casserole</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>2</id>
-    <nom>saucisses</nom>
+    <nom>Ballon</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>3</id>
-    <nom>tapis de course</nom>
-    <prix>200</prix>
+    <nom>Croquette</nom>
+    <prix>2</prix>
   </produit>
   <produit>
     <id>4</id>
-    <nom>multiprise</nom>
-    <prix>50</prix>
+    <nom>TV</nom>
+    <prix>500</prix>
   </produit>
 </produits>

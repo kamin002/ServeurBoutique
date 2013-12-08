@@ -7,15 +7,11 @@
 package gestion;
 
 import boutique.Boutique;
-import boutique.Commande;
-import boutique.Produit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
