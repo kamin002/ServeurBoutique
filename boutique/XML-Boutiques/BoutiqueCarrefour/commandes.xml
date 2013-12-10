@@ -2,8 +2,8 @@
 <commandes>
   <commande>
     <id>1</id>
-    <idCli />
-    <valide>false</valide>
+    <idCli>RabaCyri1</idCli>
+    <valide>true</valide>
     <date>1386513587351</date>
     <produits>
       <produit>
@@ -20,7 +20,7 @@
   </commande>
   <commande>
     <id>2</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386513591077</date>
     <produits>
@@ -38,7 +38,7 @@
   </commande>
   <commande>
     <id>3</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386668582408</date>
     <produits>
@@ -61,7 +61,7 @@
   </commande>
   <commande>
     <id>4</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386668836843</date>
     <produits>
@@ -84,8 +84,8 @@
   </commande>
   <commande>
     <id>5</id>
-    <idCli />
-    <valide>false</valide>
+    <idCli>RabaCyri1</idCli>
+    <valide>true</valide>
     <date>1386669532112</date>
     <produits>
       <produit>
@@ -102,7 +102,7 @@
   </commande>
   <commande>
     <id>6</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386670592548</date>
     <produits>
@@ -120,8 +120,8 @@
   </commande>
   <commande>
     <id>7</id>
-    <idCli />
-    <valide>false</valide>
+    <idCli>RabaCyri1</idCli>
+    <valide>true</valide>
     <date>1386670790080</date>
     <produits>
       <produit>
@@ -138,7 +138,7 @@
   </commande>
   <commande>
     <id>8</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386670861754</date>
     <produits>
@@ -156,7 +156,7 @@
   </commande>
   <commande>
     <id>9</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386671001069</date>
     <produits>
@@ -174,7 +174,7 @@
   </commande>
   <commande>
     <id>10</id>
-    <idCli />
+    <idCli>RabaCyri1</idCli>
     <valide>false</valide>
     <date>1386671141692</date>
     <produits>
@@ -192,8 +192,8 @@
   </commande>
   <commande>
     <id>11</id>
-    <idCli />
-    <valide>false</valide>
+    <idCli>RabaCyri1</idCli>
+    <valide>true</valide>
     <date>1386671229260</date>
     <produits>
       <produit>
@@ -205,6 +205,259 @@
         <id>2</id>
         <nom>saucisses</nom>
         <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>12</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386685055580</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>13</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>true</valide>
+    <date>1386685235209</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>14</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686080377</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>15</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686474978</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>16</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686478944</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>17</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686482852</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>18</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686662109</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>19</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686722716</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>20</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686749310</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>21</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>true</valide>
+    <date>1386686774503</date>
+    <produits>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>22</id>
+    <idCli>RabaCyri1</idCli>
+    <valide>false</valide>
+    <date>1386686861129</date>
+    <produits>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
       </produit>
     </produits>
   </commande>

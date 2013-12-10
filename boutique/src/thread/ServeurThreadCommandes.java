@@ -40,7 +40,7 @@ public class ServeurThreadCommandes extends Thread{
     private static int portEcoute;
     private static DatagramSocket socketServeur;
     private static Boutique bout;
-    private byte[] tampon = new byte[3000];
+    private byte[] tampon = new byte[4000];
     
     private static String portClient;
     private static String hostClient;
@@ -168,10 +168,17 @@ public class ServeurThreadCommandes extends Thread{
             //on ajoute l'élément idCli à l'élément commande
             Element idCli= new Element("idCli");
             commande.addContent(idCli);
-            if(cmd.getIdCli()==null)
-                idCli.setText("null");
-            else
-                idCli.setText(cmd.getIdCli());
+            idCli.setText(cmd.getIdCli());
+            
+            //on ajoute l'élément nbP à l'élément commande
+            Element nbP= new Element("nbP");
+            commande.addContent(nbP);
+            nbP.setText(String.valueOf(cmd.getListeProduits().size()));
+            
+            //on ajoute l'élément montantTT à l'élément commande
+            Element montantTT= new Element("montantTT");
+            commande.addContent(montantTT);
+            montantTT.setText(String.valueOf(cmd.getMontantTT()));
             
             //on ajoute l'élément validation à l'élément commande
             Element valide= new Element("valide");
@@ -183,9 +190,7 @@ public class ServeurThreadCommandes extends Thread{
             commande.addContent(date);
             date.setText(String.valueOf(cmd.getDateCmd().getTime()));
         }
-        
         affiche(doc);
-        
         XMLOutputter sortie= new XMLOutputter(Format.getCompactFormat());
         ByteArrayOutputStream baos= new ByteArrayOutputStream();
         

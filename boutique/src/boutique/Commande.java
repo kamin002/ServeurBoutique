@@ -26,6 +26,7 @@ public class Commande implements Cloneable{
         this.listeProduits = listeProduits;
         this.id="0";
         this.validation=false;
+        this.idCli=idCli;
     }
     
      public Commande(String idCli, Date dateCmd, ArrayList<Produit> listeProduits, Boolean valide) {
@@ -33,6 +34,7 @@ public class Commande implements Cloneable{
         this.listeProduits = listeProduits;
         this.id="0";
         this.validation=valide;
+        this.idCli=idCli;
     }
     
     public Commande(Date dateCmd) {
@@ -57,7 +59,14 @@ public class Commande implements Cloneable{
         return idCli;
     }
     
-    
+    public long getMontantTT(){
+        long res=0;
+        
+        for(Produit p:listeProduits){
+            res+=p.getPrix();
+        }
+        return res;
+    }
 
     public synchronized Date getDateCmd() {
         return dateCmd;
