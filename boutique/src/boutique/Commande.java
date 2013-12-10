@@ -19,15 +19,16 @@ public class Commande implements Cloneable{
     private Date dateCmd;
     private boolean validation;
     private ArrayList<Produit> listeProduits = new ArrayList<Produit>();
+    private String idCli;
 
-    public Commande(Date dateCmd, ArrayList<Produit> listeProduits) {
+    public Commande(String idCli, Date dateCmd, ArrayList<Produit> listeProduits) {
         this.dateCmd = dateCmd;
         this.listeProduits = listeProduits;
         this.id="0";
         this.validation=false;
     }
     
-     public Commande(Date dateCmd, ArrayList<Produit> listeProduits, Boolean valide) {
+     public Commande(String idCli, Date dateCmd, ArrayList<Produit> listeProduits, Boolean valide) {
         this.dateCmd = dateCmd;
         this.listeProduits = listeProduits;
         this.id="0";
@@ -51,6 +52,12 @@ public class Commande implements Cloneable{
     public synchronized String getId() {
         return id;
     }
+
+    public String getIdCli() {
+        return idCli;
+    }
+    
+    
 
     public synchronized Date getDateCmd() {
         return dateCmd;

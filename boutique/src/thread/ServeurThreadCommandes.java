@@ -113,8 +113,8 @@ public class ServeurThreadCommandes extends Thread{
   
   public static void lireMessage(org.jdom2.Document document){
 		
-        //affiche(document);
         Element message = document.getRootElement();
+        System.out.println(message.getAttributeValue("action"));
 
         if(message.getAttributeValue("action").equals("envoyerCommande"))
             passerCommande(message.getChild("commande"));
@@ -122,8 +122,9 @@ public class ServeurThreadCommandes extends Thread{
             validerCommande(message.getChild("commande"));
         if(message.getAttributeValue("action").equals("recevoirCommande"))
             envoyerCommandes();
-
-        System.out.println(message.getAttributeValue("action"));					
+        
+        
+        
     }
     
     public static void passerCommande(Element message){        
@@ -140,9 +141,8 @@ public class ServeurThreadCommandes extends Thread{
             if(bout.rechercherProduit(produit.getAttributeValue("id"))!=null)
                 listeProduits.add(bout.rechercherProduit(produit.getAttributeValue("id")));
         }
-        
         //ajout de la commande
-        bout.ajouterCommande(new Commande(new Date(Long.parseLong(message.getChild("date").getText())), (ArrayList<Produit>) listeProduits.clone()));
+        bout.ajouterCommande(new Commande(message.getChildText("idCli"),new Date(Long.parseLong(message.getChild("date").getText())), (ArrayList<Produit>) listeProduits.clone()));
     }
          
     public static void validerCommande(Element message){
@@ -165,6 +165,14 @@ public class ServeurThreadCommandes extends Thread{
             commande.addContent(id);
             id.setText(cmd.getId());
             
+            //on ajoute l'élément idCli à l'élément commande
+            Element idCli= new Element("idCli");
+            commande.addContent(idCli);
+            if(cmd.getIdCli()==null)
+                idCli.setText("null");
+            else
+                idCli.setText(cmd.getIdCli());
+            
             //on ajoute l'élément validation à l'élément commande
             Element valide= new Element("valide");
             commande.addContent(valide);
@@ -176,9 +184,11 @@ public class ServeurThreadCommandes extends Thread{
             date.setText(String.valueOf(cmd.getDateCmd().getTime()));
         }
         
+        affiche(doc);
+        
         XMLOutputter sortie= new XMLOutputter(Format.getCompactFormat());
         ByteArrayOutputStream baos= new ByteArrayOutputStream();
-        affiche(doc);
+        
         
         try {
             sortie.output(doc, baos);

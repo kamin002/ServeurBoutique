@@ -2,6 +2,7 @@
 <commandes>
   <commande>
     <id>1</id>
+    <idCli />
     <valide>false</valide>
     <date>1386513587351</date>
     <produits>
@@ -12,13 +13,14 @@
       </produit>
       <produit>
         <id>3</id>
-        <nom>tapis de course</nom>
+        <nom>tapis</nom>
         <prix>200</prix>
       </produit>
     </produits>
   </commande>
   <commande>
     <id>2</id>
+    <idCli />
     <valide>false</valide>
     <date>1386513591077</date>
     <produits>
@@ -29,8 +31,180 @@
       </produit>
       <produit>
         <id>3</id>
-        <nom>tapis de course</nom>
+        <nom>tapis</nom>
         <prix>200</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>3</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386668582408</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>4</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386668836843</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>tapis</nom>
+        <prix>200</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>5</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386669532112</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>6</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386670592548</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>7</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386670790080</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>Pain</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>8</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386670861754</date>
+    <produits>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>9</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386671001069</date>
+    <produits>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>10</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386671141692</date>
+    <produits>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>11</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386671229260</date>
+    <produits>
+      <produit>
+        <id>4</id>
+        <nom>multiprise</nom>
+        <prix>50</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>saucisses</nom>
+        <prix>10</prix>
       </produit>
     </produits>
   </commande>

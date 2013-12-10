@@ -2,6 +2,7 @@
 <commandes>
   <commande>
     <id>1</id>
+    <idCli />
     <valide>false</valide>
     <date>1386513246538</date>
     <produits>
@@ -24,6 +25,7 @@
   </commande>
   <commande>
     <id>2</id>
+    <idCli />
     <valide>false</valide>
     <date>1386513487026</date>
     <produits>
@@ -46,6 +48,7 @@
   </commande>
   <commande>
     <id>3</id>
+    <idCli />
     <valide>false</valide>
     <date>1386513515295</date>
     <produits>
@@ -58,6 +61,60 @@
         <id>3</id>
         <nom>Croquette</nom>
         <prix>2</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>4</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386669532160</date>
+    <produits>
+      <produit>
+        <id>2</id>
+        <nom>Ballon</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>TV</nom>
+        <prix>500</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>5</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386670592557</date>
+    <produits>
+      <produit>
+        <id>2</id>
+        <nom>Ballon</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>TV</nom>
+        <prix>500</prix>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>6</id>
+    <idCli />
+    <valide>false</valide>
+    <date>1386670790122</date>
+    <produits>
+      <produit>
+        <id>2</id>
+        <nom>Ballon</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>TV</nom>
+        <prix>500</prix>
       </produit>
     </produits>
   </commande>

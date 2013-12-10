@@ -22,10 +22,10 @@ public class RunUneBoutique {
         
           //GestionBoutique.chargerBoutiqueXML();
           
-          //GestionBoutique.ajouterBoutique("Carrefour",5005,5006);
+          GestionBoutique.ajouterBoutique("Carrefour",5005,5006);
           //GestionBoutique.ajouterBoutique("Leclerc",5007,5008);
           //GestionBoutique.ajouterBoutique("Cora",5009,5010);
-          GestionBoutique.ajouterBoutique("Gene",5010,5011);
+          //GestionBoutique.ajouterBoutique("Gene",5010,5011);
           
           System.out.println(GestionBoutique.getListeBoutiques());
           //Boutique boutique1=new Boutique("Carrefour");
